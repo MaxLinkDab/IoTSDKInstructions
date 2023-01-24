@@ -1,0 +1,120 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.td.common_service.config.AliPayProperties",
+      "name": "alipay.miniapp",
+      "type": "com.td.common_service.config.AliPayProperties"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay",
+      "type": "com.td.common_service.config.WxPayProperties"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WechatPublicProperties",
+      "name": "wechat",
+      "type": "com.td.common_service.config.WechatPublicProperties"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxMaProperties",
+      "name": "wx.miniapp",
+      "type": "com.td.common_service.config.WxMaProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.td.common_service.config.AliPayProperties",
+      "name": "alipay.miniapp.appid",
+      "description": "支付宝小程序appid",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.AliPayProperties",
+      "name": "alipay.miniapp.notify-url",
+      "description": "支付宝支付的回调地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.AliPayProperties",
+      "name": "alipay.miniapp.private-key",
+      "description": "支付宝秘钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.AliPayProperties",
+      "name": "alipay.miniapp.public-key",
+      "description": "支付宝公钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.AliPayProperties",
+      "name": "alipay.miniapp.server-url",
+      "description": "授权地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.app-id",
+      "description": "设置微信公众号或者小程序等的appid",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.key-path",
+      "description": "apiclient_cert.p12文件的绝对路径，或者如果放在项目中，请以classpath:开头指定",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.mch-id",
+      "description": "微信支付商户号",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.mch-key",
+      "description": "微信支付商户密钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.notify-url",
+      "description": "支付回调地址",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.sub-app-id",
+      "description": "服务商模式下的子商户公众账号ID，普通模式请不要配置，请在配置文件中将对应项删除",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxPayProperties",
+      "name": "orderpay.pay.sub-mch-id",
+      "description": "服务商模式下的子商户号，普通模式请不要配置，最好是请在配置文件中将对应项删除",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WechatPublicProperties",
+      "name": "wechat.app-id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WechatPublicProperties",
+      "name": "wechat.secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WechatPublicProperties",
+      "name": "wechat.token",
+      "description": "自定义token 必须为英文或数字，长度为3-32字符。",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.td.common_service.config.WxMaProperties",
+      "name": "wx.miniapp.configs",
+      "type": "java.util.List<com.td.common_service.config.WxMaProperties.Config>"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.common_service.mapper.WxaUserMapper" >
+  <resultMap id="BaseResultMap" type="com.td.common_service.model.WxaUser" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="head_url" property="headUrl" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="rent" property="rent" jdbcType="INTEGER" />
+    <result column="user_type" property="userType" jdbcType="INTEGER" />
+    <result column="loan_type" property="loanType" jdbcType="INTEGER" />
+    <result column="union_id" property="unionId" jdbcType="VARCHAR" />
+    <result column="open_id" property="openId" jdbcType="VARCHAR" />
+    <result column="uuid" property="uuid" jdbcType="VARCHAR" />
+    <result column="debug" property="debug" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="country" property="country" jdbcType="VARCHAR" />
+    <result column="money" property="money" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, nick_name, head_url, sex, province, city, rent, user_type, loan_type, union_id, 
+    open_id, uuid, debug, created_time, country, money
+  </sql>
+</mapper>

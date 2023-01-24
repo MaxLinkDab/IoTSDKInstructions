@@ -1,0 +1,26 @@
+management:
+  endpoint:
+    health:
+      # 获得健康检查中的所有指标　不然只能看到基础的信息
+      show-details: always
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    # 开启redis检测
+    redis:
+      enabled: true
+    # 开启db检测
+    db:
+      enabled: true
+  metrics:
+    tags:
+      applocation: JVM-micrometer
+    export:
+      prometheus:
+        enabled: true
+        step: 1m
+        descriptions: true

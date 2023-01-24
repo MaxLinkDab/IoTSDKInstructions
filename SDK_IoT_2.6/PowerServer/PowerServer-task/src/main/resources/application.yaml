@@ -1,0 +1,24 @@
+server:
+  port: 58888
+spring:
+#  application:
+#    name: td
+  profiles:
+    active:
+      - actuator
+      - common_service
+#      - utildev
+      - util
+#      - sharding
+      - config
+
+
+#logging:
+#  level:
+#    root: INFO
+#    org.hibernate: INFO
+#    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+#    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+#    com.authorize: INFO
+
+

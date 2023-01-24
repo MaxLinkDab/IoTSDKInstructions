@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration>
+
+	<property name="project_name" value="task" />
+	<property name="logdir" value="./logs/${project_name}" />
+	
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<!-- %X{ThreadID} -->
+			<pattern>
+				[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] - [%thread][%replace(%caller{1}){'\t|Caller.{1}0| at|\r\n', ''}] : %msg%n
+			</pattern>
+		</encoder>
+	</appender>
+	<appender name="infoFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+		<file>${logdir}_info${file.separator}${project_name}</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] - [%thread][%replace(%caller{1}){'\t|Caller.{1}0| at|\r\n', ''}] : %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logdir}_info${file.separator}${project_name}_%d{yyyy-MM-dd}.%i.info</fileNamePattern>
+			<maxHistory>7</maxHistory>
+			<maxFileSize>50MB</maxFileSize>
+		</rollingPolicy>
+		<append>true</append>
+	</appender>
+	<appender name="errorFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+		<file>${logdir}_error${file.separator}${project_name}</file>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>
+				[%date{yyyy-MM-dd HH:mm:ss.SSS}] [%-5level] - [%thread][%replace(%caller{1}){'\t|Caller.{1}0| at|\r\n', ''}] : %msg%n
+			</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${logdir}_error${file.separator}${project_name}_%d{yyyy-MM-dd}.%i.error</fileNamePattern>
+			<maxHistory>7</maxHistory>
+			<maxFileSize>50MB</maxFileSize>
+		</rollingPolicy>
+	</appender>
+	<!-- <logger name="com.td" level="info">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="infoFile" />
+	</logger> -->
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="infoFile" />
+		<appender-ref ref="errorFile" />
+	</root>
+</configuration>

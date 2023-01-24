@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.common_service.mapper.MPlaceInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.td.common_service.model.MPlaceInfo" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="charge_no" jdbcType="VARCHAR" property="chargeNo" />
+    <result column="place_uid" jdbcType="INTEGER" property="placeUid" />
+    <result column="place_name" jdbcType="VARCHAR" property="placeName" />
+    <result column="place_remark" jdbcType="VARCHAR" property="placeRemark" />
+    <result column="place_no" jdbcType="VARCHAR" property="placeNo" />
+    <result column="lon" jdbcType="DOUBLE" property="lon" />
+    <result column="lat" jdbcType="DOUBLE" property="lat" />
+    <result column="picture_url" jdbcType="VARCHAR" property="pictureUrl" />
+    <result column="open_time" jdbcType="VARCHAR" property="openTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, create_time, update_time, charge_no, place_uid, place_name, place_remark, place_no,
+    lon, lat, picture_url, open_time
+  </sql>
+</mapper>

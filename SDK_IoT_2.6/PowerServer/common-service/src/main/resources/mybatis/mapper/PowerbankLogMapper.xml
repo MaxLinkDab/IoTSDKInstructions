@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.common_service.mapper.PowerbankLogMapper" >
+  <resultMap id="BaseResultMap" type="com.td.common_service.model.PowerbankLog" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="pos_uuid" property="posUuid" jdbcType="VARCHAR" />
+    <result column="back_result" property="backResult" jdbcType="VARCHAR" />
+    <result column="power_ad" property="powerAd" jdbcType="VARCHAR" />
+    <result column="power_uuid" property="powerUuid" jdbcType="VARCHAR" />
+    <result column="temp" property="temp" jdbcType="VARCHAR" />
+    <result column="powerbank_state" property="powerbankState" jdbcType="VARCHAR" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, pos_uuid, back_result, power_ad, power_uuid, temp, powerbank_state, bid
+  </sql>
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="PowerServer-api" />
+        <module name="PowerServer-task" />
+        <module name="common-service" />
+        <module name="common" />
+        <module name="util" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="common" target="1.8" />
+      <module name="common-service" target="1.8" />
+      <module name="PowerServer" target="1.8" />
+      <module name="PowerServer-api" target="1.8" />
+      <module name="PowerServer-task" target="1.8" />
+      <module name="util" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="PowerServer" options="" />
+      <module name="PowerServer-api" options="-parameters" />
+      <module name="PowerServer-task" options="-parameters" />
+      <module name="common" options="-parameters" />
+      <module name="common-service" options="-parameters" />
+      <module name="util" options="-parameters" />
+    </option>
+  </component>
+</project>

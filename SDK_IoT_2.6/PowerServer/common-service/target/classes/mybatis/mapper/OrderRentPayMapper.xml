@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+		namespace="com.td.common_service.mapper.OrderRentPayMapper">
+	<resultMap id="BaseResultMap"
+			   type="com.td.common_service.model.OrderRentPay">
+		<!-- WARNING - @mbg.generated -->
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="order_no" property="orderNo" jdbcType="VARCHAR" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="power_no" property="powerNo" jdbcType="VARCHAR" />
+		<result column="money" property="money" jdbcType="INTEGER" />
+		<result column="memo" property="memo" jdbcType="VARCHAR" />
+		<result column="order_type" property="orderType"
+				jdbcType="INTEGER" />
+		<result column="order_state" property="orderState"
+				jdbcType="INTEGER" />
+		<result column="pay_way" property="payWay" jdbcType="INTEGER" />
+		<result column="device_uuid" property="deviceUuid"
+				jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime"
+				jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime"
+				jdbcType="TIMESTAMP" />
+		<result column="close_time" property="closeTime"
+				jdbcType="TIMESTAMP" />
+		<result column="finish_time" property="finishTime"
+				jdbcType="TIMESTAMP" />
+		<result column="order_pay_no" property="orderPayNo"
+				jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		<!-- WARNING - @mbg.generated -->
+		id, order_no, user_id, power_no, money, memo, order_type, order_state,
+		pay_way, device_uuid,
+		create_time, update_time, close_time,
+		finish_time, order_pay_no
+	</sql>
+
+	<!--
+	<select id="getOrderRentByPaycount" resultType="map">
+		SELECT o.*,m.place_name FROM order_rent_pay o,m_place_info m where
+		o.pay_count = ${payCount} and o.device_uuid = m.device_uuid ORDER BY
+		${fullordering} desc limit
+		<if test="pageNumber != null">
+			${pageNumber},
+		</if>
+		<if test="pageSize != null">
+			${pageSize}
+		</if>
+	</select>
+	-->
+</mapper>

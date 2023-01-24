@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/PowerServer/PowerServer.iml" filepath="$PROJECT_DIR$/PowerServer/PowerServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PowerServer/PowerServer-api/PowerServer-api.iml" filepath="$PROJECT_DIR$/PowerServer/PowerServer-api/PowerServer-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PowerServer/PowerServer-task/PowerServer-task.iml" filepath="$PROJECT_DIR$/PowerServer/PowerServer-task/PowerServer-task.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SDK_IoT_2.6.iml" filepath="$PROJECT_DIR$/.idea/SDK_IoT_2.6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PowerServer/common/common.iml" filepath="$PROJECT_DIR$/PowerServer/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PowerServer/common-service/common-service.iml" filepath="$PROJECT_DIR$/PowerServer/common-service/common-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PowerServer/util/util.iml" filepath="$PROJECT_DIR$/PowerServer/util/util.iml" />
+    </modules>
+  </component>
+</project>

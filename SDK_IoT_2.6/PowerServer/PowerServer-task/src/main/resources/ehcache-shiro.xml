@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache name="es">
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="false"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="false"
+            diskPersistent="false"
+            diskExpiryThreadIntervalSeconds="120"
+    />
+
+<cache name="passwordRetryCache"
+       maxEntriesLocalHeap="2000"
+       eternal="false"
+       timeToIdleSeconds="0"
+       timeToLiveSeconds="300"
+       overflowToDisk="false"
+       statistics="true">
+</cache>
+</ehcache>

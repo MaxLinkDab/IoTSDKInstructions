@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.api.mapper.MFindBackLogMapper" >
+  <resultMap id="BaseResultMap" type="com.td.api.domain.FindBackLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="device_uuid" property="deviceUuid" jdbcType="VARCHAR" />
+    <result column="machine_uuid" property="machineUuid" jdbcType="VARCHAR" />
+    <result column="event" property="event" jdbcType="VARCHAR" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, device_uuid, machine_uuid, event, bid, created_time
+  </sql>
+  <select id="select" resultMap="BaseResultMap" parameterType="com.td.api.domain.FindBackLog" >
+    select 
+    <include refid="Base_Column_List" />
+    from findback_log
+    <where>
+      <if test="deviceUuid != null and '' != deviceUuid" >
+        and device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+      </if>
+      <if test="machineUuid != null and '' != machineUuid" >
+        and machine_uuid = #{machineUuid,jdbcType=VARCHAR}
+      </if>
+      <if test="event != null and '' != event" >
+        and event = #{event,jdbcType=VARCHAR}
+      </if>
+      <if test="bid != null" >
+        and bid = #{bid,jdbcType=INTEGER}
+      </if>
+      <if test="startTime != null and '' != startTime" >
+        and created_time <![CDATA[>=]]> #{startTime}
+      </if>
+      <if test="endTime != null and '' != endTime" >
+        and created_time <![CDATA[<=]]> CONCAT(#{endTime},' 23:59:59')
+      </if>
+    </where>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from findback_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from findback_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.td.api.domain.FindBackLog" >
+    insert into findback_log (id, device_uuid, machine_uuid, 
+      event, bid, created_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{deviceUuid,jdbcType=VARCHAR}, #{machineUuid,jdbcType=VARCHAR}, 
+      #{event,jdbcType=VARCHAR}, #{bid,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.td.api.domain.FindBackLog" >
+    insert into findback_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="deviceUuid != null" >
+        device_uuid,
+      </if>
+      <if test="machineUuid != null" >
+        machine_uuid,
+      </if>
+      <if test="event != null" >
+        event,
+      </if>
+      <if test="bid != null" >
+        bid,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="deviceUuid != null" >
+        #{deviceUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="machineUuid != null" >
+        #{machineUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="event != null" >
+        #{event,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null" >
+        #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.td.api.domain.FindBackLog" >
+    update findback_log
+    <set >
+      <if test="deviceUuid != null" >
+        device_uuid = #{deviceUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="machineUuid != null" >
+        machine_uuid = #{machineUuid,jdbcType=VARCHAR},
+      </if>
+      <if test="event != null" >
+        event = #{event,jdbcType=VARCHAR},
+      </if>
+      <if test="bid != null" >
+        bid = #{bid,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.td.api.domain.FindBackLog" >
+    update findback_log
+    set device_uuid = #{deviceUuid,jdbcType=VARCHAR},
+      machine_uuid = #{machineUuid,jdbcType=VARCHAR},
+      event = #{event,jdbcType=VARCHAR},
+      bid = #{bid,jdbcType=INTEGER},
+      created_time = #{createdTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,214 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>PowerServer-api</artifactId>
+	<parent>
+		<groupId>com.td</groupId>
+		<artifactId>PowerServer</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+
+
+	<dependencies>
+		<!--<dependency>
+			<groupId>com.td</groupId>
+			<artifactId>common</artifactId>
+		</dependency>-->
+		<dependency>
+			<groupId>com.google.zxing</groupId>
+			<artifactId>core</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.td</groupId>
+			<artifactId>common-service</artifactId>
+			<exclusions>
+<!--				<exclusion>-->
+<!--					<artifactId>core</artifactId>-->
+<!--					<groupId>com.google.zxing</groupId>-->
+<!--				</exclusion>-->
+				<exclusion>
+					<groupId>cn.keking</groupId>
+					<artifactId>spring-boot-klock-starter</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!--<dependency>
+			<groupId>com.td</groupId>
+			<artifactId>util</artifactId>
+		</dependency>-->
+		<!-- MYSQL -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.6.1</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.7.0</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>-->
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.9</version>
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.goebl</groupId>
+			<artifactId>david-webb</artifactId>
+			<version>1.3.0</version>
+		</dependency>-->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-core-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j</artifactId>
+		</dependency>
+		<!-- alibaba fastjson 格式化对 -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<!-- 引入Lombok -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<!-- <scope>test</scope> -->
+		</dependency>
+
+		<!--<dependency>
+			<groupId>com.td</groupId>
+			<artifactId>common-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.td</groupId>
+			<artifactId>common-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>-->
+	</dependencies>
+
+	<!-- 添加spring-boot的maven插件，不能少，打jar包时得用 -->
+	<build>
+		<plugins>
+			<!--я добавил это todo-->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<finalName>ServiceCreate</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+					<archive>
+						<manifest>
+							<mainClass>com.svt.optimoo.App</mainClass>
+						</manifest>
+					</archive>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+
+			<!-- MyBatis 逆向工程 插件 -->
+			<plugin>
+				<groupId>org.mybatis.generator</groupId>
+				<artifactId>mybatis-generator-maven-plugin</artifactId>
+				<version>1.3.2</version>
+				<dependencies>
+					<dependency>
+						<groupId>mysql</groupId>
+						<artifactId>mysql-connector-java</artifactId>
+						<version>${mysql.version}</version>
+					</dependency>
+					<dependency>
+						<groupId>tk.mybatis</groupId>
+						<artifactId>mapper</artifactId>
+						<version>3.4.3</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<!-- 允许移动生成的文件 -->
+					<verbose>true</verbose>
+					<!-- 是否覆盖 -->
+					<overwrite>true</overwrite>
+					<!-- 配置文件 -->
+					<configurationFile>
+						${basedir}/src/main/resources/generator/generatorConfig.xml
+					</configurationFile>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.4.13</version>
+				<configuration>
+					<imageName>${project.artifactId}</imageName>
+					<dockerDirectory>src/main/docker</dockerDirectory>
+					<resources>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${project.build.directory}</directory>
+							<include>${project.build.finalName}.jar</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+
+</project>

@@ -1,0 +1,62 @@
+server:
+  servlet:
+    session:
+      timeout: -1s
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 6888
+ #####################################################################################################
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    cache: false #关闭缓存
+    mode: LEGACYHTML5
+
+spring:
+  jackson:
+      default-property-inclusion: non_null
+  application:
+    name: td
+  profiles:
+    active:
+      - actuator
+      - common_service
+#      - utildev
+      - util
+      - config
+
+
+# mybatis-plus 配置
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml从机协议版本
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath*:/mybatis/mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  #typeAliasesPackage: com.td._sys.entity
+  typeAliasesPackage: com.td.domain
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 3
+    # 热加载mapper文件
+    refresh: true
+    db-config:
+      db-type: mysql
+#####################################################################################################
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.authorize: DEBUG
+#  config: classpath:log/logback-spring.xml
+#  path:
+
+
+

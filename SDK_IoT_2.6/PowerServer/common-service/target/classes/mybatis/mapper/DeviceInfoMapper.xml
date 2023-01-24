@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.common_service.mapper.DeviceInfoMapper">
+	<resultMap id="BaseResultMap"
+		type="com.td.common_service.model.DeviceInfo">
+		<!-- WARNING - @mbg.generated -->
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="created_time" property="createdTime"
+			jdbcType="TIMESTAMP" />
+		<result column="device_no" property="deviceNo"
+			jdbcType="VARCHAR" />
+		<result column="device_name" property="deviceName"
+			jdbcType="VARCHAR" />
+		<result column="cloud_id" property="cloudId" jdbcType="VARCHAR" />
+		<result column="icc_id" property="iccId" jdbcType="VARCHAR" />
+		<result column="device_key" property="deviceKey"
+			jdbcType="VARCHAR" />
+		<result column="sn" property="sn" jdbcType="VARCHAR" />
+		<result column="device_state" property="deviceState"
+			jdbcType="INTEGER" />
+		<result column="trace" property="trace" jdbcType="BIGINT" />
+		<result column="space_nu" property="spaceNu" jdbcType="INTEGER" />
+		<result column="machine_nu" property="machineNu"
+			jdbcType="INTEGER" />
+		<result column="device_uuid" property="deviceUuid"
+			jdbcType="VARCHAR" />
+		<result column="soft_version" property="softVersion"
+			jdbcType="VARCHAR" />
+		<result column="hard_version" property="hardVersion"
+			jdbcType="VARCHAR" />
+		<result column="agreement_version" property="agreementVersion"
+			jdbcType="VARCHAR" />
+		<result column="url" property="url" jdbcType="VARCHAR" />
+		<result column="device_model" property="deviceModel"
+			jdbcType="VARCHAR" />
+		<result column="device_signal" property="deviceSignal"
+			jdbcType="VARCHAR" />
+		<result column="network_type" property="networkType"
+			jdbcType="VARCHAR" />
+		<result column="network_operator" property="networkOperator"
+			jdbcType="VARCHAR" />
+		<result column="device_ip" property="deviceIP"
+			jdbcType="VARCHAR" />
+
+		<result column="sole_uid" property="soleUid"
+				jdbcType="VARCHAR" />
+		<result column="place_uid" property="placeUid"
+				jdbcType="VARCHAR" />
+		<result column="agent_uid" property="agentUid"
+				jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="DevicePowerBankInfoResultMap" type="com.td.common_service.vo.DevicePowerBankInfoVO">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="power_no" jdbcType="VARCHAR" property="powerNo" />
+		<result column="state" jdbcType="INTEGER" property="state" />
+		<result column="power_name" jdbcType="VARCHAR" property="powerName" />
+		<result column="power_ad" jdbcType="INTEGER" property="powerAd" />
+		<result column="position_uuid" jdbcType="INTEGER" property="positionUuid" />
+		<result column="machine_uuid" jdbcType="VARCHAR" property="machineUuid" />
+		<result column="device_uuid" jdbcType="VARCHAR" property="deviceUuid" />
+		<result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="back_time" jdbcType="TIMESTAMP" property="backTime" />
+		<result column="place_name" jdbcType="VARCHAR" property="placeName" />
+		<result column="agent_name" jdbcType="VARCHAR" property="agentName" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		<!-- WARNING - @mbg.generated -->
+		id, created_time, device_no, device_name, cloud_id, icc_id,
+		device_key, sn, device_state,
+		trace, space_nu, machine_nu, device_uuid,
+		soft_version, hard_version,
+		agreement_version,
+		url, device_model,
+		device_signal, network_type, network_operator, device_ip, sole_uid, place_uid, agent_uid
+	</sql>
+	<update id="updateByDeviceUuidSelective"
+		parameterType="com.td.common_service.model.DeviceInfo">
+		update device_info
+		<set>
+			<if test="deviceNo != null and '' != deviceNo">
+				device_no = #{deviceNo,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceName != null and '' != deviceName">
+				device_name = #{deviceName,jdbcType=VARCHAR},
+			</if>
+			<if test="cloudId != null and '' != cloudId">
+				cloud_id = #{cloudId,jdbcType=VARCHAR},
+			</if>
+			<if test="iccId != null and '' != iccId">
+				icc_id = #{iccId,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceKey != null and '' != deviceKey">
+				device_key = #{deviceKey,jdbcType=VARCHAR},
+			</if>
+			<if test="sn != null and '' != sn">
+				sn = #{sn,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceState != null">
+				device_state = #{deviceState,jdbcType=INTEGER},
+			</if>
+			<if test="trace != null">
+				trace = #{trace,jdbcType=BIGINT},
+			</if>
+			<if test="spaceNu != null">
+				space_nu = #{spaceNu,jdbcType=INTEGER},
+			</if>
+			<if test="machineNu != null">
+				machine_nu = #{machineNu,jdbcType=INTEGER},
+			</if>
+			<if test="deviceUuid != null and '' != deviceUuid">
+				device_uuid = #{deviceUuid,jdbcType=VARCHAR},
+			</if>
+			<if test="softVersion != null and '' != softVersion">
+				soft_version = #{softVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="hardVersion != null and '' != hardVersion">
+				hard_version = #{hardVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="agreementVersion != null and '' != agreementVersion">
+				agreement_version = #{agreementVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="url != null and '' != url">
+				url = #{url,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceModel != null and '' != deviceModel">
+				device_model = #{deviceModel,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceSignal != null and '' != deviceSignal">
+				device_signal = #{deviceSignal,jdbcType=VARCHAR},
+			</if>
+			<if test="networkType != null and '' != networkType">
+				network_type = #{networkType,jdbcType=VARCHAR},
+			</if>
+			<if test="networkOperator != null and '' != networkOperator">
+				network_operator = #{networkOperator,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceIP != null and '' != deviceIP">
+				device_ip = #{deviceIP,jdbcType=VARCHAR},
+			</if>
+			<if test="soleUid != null and '' != soleUid">
+				sole_uid = #{soleUid,jdbcType=VARCHAR},
+			</if>
+			<if test="placeUid != null and '' != placeUid">
+				place_uid = #{placeUid,jdbcType=VARCHAR},
+			</if>
+			<if test="agentUid != null and '' != agentUid">
+				agent_uid = #{agentUid,jdbcType=VARCHAR},
+			</if>
+			<if test="placeUuid != null and '' != placeUuid">
+				place_uuid = #{placeUuid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+	</update>
+	<!-- 更新设备版本 -->
+	<update id="updateVersionByDeviceUuidSelective"
+			parameterType="com.td.common_service.model.DeviceInfo">
+		update device_info
+		<set>
+			<if test="trace != null">
+				trace = #{trace,jdbcType=INTEGER},
+			</if>
+			<if test="softVersion != null and '' != softVersion">
+				soft_version = #{softVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="hardVersion != null and '' != hardVersion">
+				hard_version = #{hardVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="agreementVersion != null and '' != agreementVersion">
+				agreement_version = #{agreementVersion,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+	</update>
+	<!-- 设备绑定多选人员 -->
+	<update id="updateByIdsSelective">
+		update device_info
+		<set>
+			<if test="soleUid != null">
+				sole_uid = #{soleUid,jdbcType=VARCHAR},
+			</if>
+			<if test="placeUid != null">
+				place_uid = #{placeUid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id in
+		<foreach collection="list" item="item" index="index" open="(" close=")" separator=",">
+			${item}
+		</foreach>
+	</update>
+	<select id="selectDeviceInfoByUuId"
+		parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		*
+		from device_info
+		where device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+	</select>
+	<select id="selectDetailInfoByDeviceUuid"
+		parameterType="java.lang.String" resultMap="DevicePowerBankInfoResultMap">
+		SELECT p.* FROM powerbank p
+		WHERE p.device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+	</select>
+	<!-- 分配销售设备 -->
+	<select id="selectDeviceInfoIsNotSoleUid" parameterType="com.td.common_service.vo.DeviceInfoVO" resultMap="BaseResultMap">
+		SELECT di.*,mai.agent_name FROM device_info di
+		LEFT JOIN m_agent_info mai ON di.agent_uid=mai.agent_uid
+		WHERE sole_uid IS NULL
+		<if test="null !=deviceName">
+			<bind name="pattern" value="'%' + _parameter.deviceName + '%'" />
+			and device_name LIKE #{pattern}
+		</if>
+		<if test="null !=deviceState">
+			and device_state = #{deviceState,jdbcType=INTEGER}
+		</if>
+		<if test="null !=deviceUuid and '' != deviceUuid">
+			and device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+		</if>
+		<if test="null !=sn and '' != sn">
+			and sn = #{sn,jdbcType=VARCHAR}
+		</if>
+		<if test="null !=deviceNo and '' != deviceNo">
+			and device_no = #{deviceNo,jdbcType=VARCHAR}
+		</if>
+		<if test="null !=deviceModel and '' != deviceModel">
+			and device_model = #{deviceModel,jdbcType=VARCHAR}
+		</if>
+		order by di.created_time DESC
+	</select>
+	<!-- 分配场所设备 -->
+	<select id="selectDeviceInfoIsNotPlaceUid" parameterType="com.td.common_service.vo.DeviceInfoVO" resultMap="BaseResultMap">
+		SELECT di.*,mai.agent_name,mui.username sole_username,mui.nickname sole_nickname
+		FROM device_info di
+		LEFT JOIN m_agent_info mai ON di.agent_uid=mai.agent_uid
+		LEFT JOIN m_user_info mui ON di.sole_uid=mui.uid
+		WHERE place_uid IS NULL
+		<if test="null !=deviceName">
+			<bind name="pattern" value="'%' + _parameter.deviceName + '%'" />
+			and device_name LIKE #{pattern}
+		</if>
+		<if test="null !=deviceState">
+			and device_state = #{deviceState,jdbcType=INTEGER}
+		</if>
+		<if test="null !=deviceUuid and '' != deviceUuid">
+			and device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+		</if>
+		<if test="null !=sn and '' != sn">
+			and sn = #{sn,jdbcType=VARCHAR}
+		</if>
+		<if test="null !=deviceNo and '' != deviceNo">
+			and device_no = #{deviceNo,jdbcType=VARCHAR}
+		</if>
+		<if test="null !=deviceModel and '' != deviceModel">
+			and device_model = #{deviceModel,jdbcType=VARCHAR}
+		</if>
+		order by di.created_time DESC
+	</select>
+	<!-- hard_version需要升级的设备 -->
+	<select id="selectDeviceInfoByHardVersion" parameterType="java.lang.String" resultMap="BaseResultMap">
+		SELECT di.*,duv.version,duv.url duv_url,duv.file_name,duv.port
+		,duv.hard_version new_hard_version,duv.device_model new_device_model,duv.up_username,duv.up_password
+		FROM device_info di,
+		(SELECT * FROM device_upgrade_version WHERE is_valid=1 AND is_final=1 ORDER BY create_time DESC LIMIT 0,1   )duv
+		WHERE  CAST(INSERT(duv.hard_version,1,1,'') AS SIGNED) > CAST(INSERT(di.hard_version,1,1,'') AS SIGNED) AND di.device_state > 0
+		<if test="null !=deviceUuid and '' != deviceUuid">
+			and di.device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<!-- agreement_version需要升级的设备 -->
+	<select id="selectDeviceInfoByAgreementVersion" parameterType="java.lang.String" resultMap="BaseResultMap">
+		SELECT di.*,duv.version,duv.url duv_url,duv.file_name,duv.port
+		,duv.agreement_version new_agreement_version,duv.device_model new_device_model,duv.up_username,duv.up_password
+		 FROM device_info di,
+		 (SELECT * FROM device_upgrade_version WHERE is_valid=1 AND is_final=1 ORDER BY create_time DESC LIMIT 0,1   )duv
+		 WHERE  CAST(INSERT(duv.agreement_version,1,1,'') AS SIGNED) > CAST(INSERT(di.agreement_version,1,1,'') AS SIGNED) AND di.device_state > 0
+		<if test="null !=deviceUuid and '' != deviceUuid">
+			and di.device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<delete id="deleteByDeviceNo" parameterType="java.lang.String">
+		delete from device_info
+		where device_no = #{deviceNo,jdbcType=VARCHAR}
+	</delete>
+	<delete id="deleteByDeviceUuid" parameterType="java.lang.String">
+		delete from device_info
+		where device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+	</delete>
+	<select id="queryDeviceList" parameterType="com.td.common_service.model.DeviceInfo"
+			resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from device_info
+		<where>
+			<if test="null !=agentUid and '' != agentUid">
+				and agent_uid = #{agentUid,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=soleUid and '' != soleUid">
+				and sole_uid = #{soleUid,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=placeUid and '' != placeUid">
+				and place_uid = #{placeUid,jdbcType=VARCHAR}
+			</if>
+		</where>
+	</select>
+	<select id="getDeviceInfoByCloudId"
+		parameterType="java.lang.String"
+		resultType="com.td.common_service.model.DeviceInfo">
+		select
+		*
+		from device_info
+		where cloud_id = #{cloudId,jdbcType=VARCHAR}
+	</select>
+	<select id="getDeviceList"
+			parameterType="com.td.common_service.vo.DeviceInfoVO"
+			resultMap="BaseResultMap">
+		SELECT di.*,mai.agent_name,mui.nickname sole_name,mui2.nickname place_name,avd.agreement_version_did,hvd.hard_version_did
+		,hvd.hard_version new_hard_version,avd.agreement_version new_agreement_version
+		FROM device_info di
+		LEFT JOIN m_agent_info mai ON di.agent_uid=mai.agent_uid
+		LEFT JOIN m_user_info mui ON di.sole_uid=mui.uid
+		LEFT JOIN m_user_info mui2 ON di.place_uid=mui2.uid
+
+		LEFT JOIN
+		(SELECT di.id agreement_version_did,duv.agreement_version FROM device_info di,device_upgrade_version duv WHERE  CAST(INSERT(duv.agreement_version,1,1,'') AS SIGNED) > CAST(INSERT(di.agreement_version,1,1,'') AS SIGNED)
+		AND duv.is_valid=1 AND duv.is_final=1
+		)avd
+		ON di.id=avd.agreement_version_did
+		LEFT JOIN
+		(
+		SELECT di.id hard_version_did,duv.hard_version FROM device_info di,device_upgrade_version duv WHERE  CAST(INSERT(duv.hard_version,1,1,'') AS SIGNED) > CAST(INSERT(di.hard_version,1,1,'') AS SIGNED)
+		AND duv.is_valid=1 AND duv.is_final=1
+		)hvd
+		ON di.id=hvd.hard_version_did
+		<where>
+			<if test="null !=deviceName">
+				<bind name="pattern" value="'%' + _parameter.deviceName + '%'" />
+				and di.device_name LIKE #{pattern}
+			</if>
+			<if test="null !=deviceState">
+				and di.device_state = #{deviceState,jdbcType=INTEGER}
+			</if>
+			<if test="null !=deviceUuid and '' != deviceUuid">
+				and di.device_uuid = #{deviceUuid,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=sn and '' != sn">
+				and di.sn = #{sn,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=deviceNo and '' != deviceNo">
+				and di.device_no = #{deviceNo,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=agentUid and '' != agentUid">
+				and di.agent_uid = #{agentUid,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=soleUid and '' != soleUid">
+				and di.sole_uid = #{soleUid,jdbcType=VARCHAR}
+			</if>
+			<if test="null !=placeUid and '' != placeUid">
+				and di.place_uid = #{placeUid,jdbcType=VARCHAR}
+			</if>
+		</where>
+		ORDER BY di.created_time DESC
+	</select>
+	<!-- 
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from device_info
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
+		delete from device_info
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	 -->
+	<insert id="insert"
+			parameterType="com.td.common_service.model.DeviceInfo">
+		insert into device_info (id, created_time, device_no,
+		device_name, cloud_id, icc_id,
+		device_key, sn, device_state,
+		trace, space_nu, machine_nu,
+		device_uuid, soft_version, hard_version,
+		agreement_version, url, device_model , device_signal, network_type, network_operator, device_ip)
+		values (#{id,jdbcType=INTEGER}, #{createdTime,jdbcType=TIMESTAMP},
+		#{deviceNo,jdbcType=VARCHAR},
+		#{deviceName,jdbcType=VARCHAR}, #{cloudId,jdbcType=VARCHAR}, #{iccId,jdbcType=VARCHAR},
+		#{deviceKey,jdbcType=VARCHAR}, #{sn,jdbcType=VARCHAR},
+		#{deviceState,jdbcType=INTEGER},
+		#{trace,jdbcType=BIGINT}, #{spaceNu,jdbcType=INTEGER}, #{machineNu,jdbcType=INTEGER},
+		#{deviceUuid,jdbcType=VARCHAR}, #{softVersion,jdbcType=VARCHAR},
+		#{hardVersion,jdbcType=VARCHAR},
+		#{agreementVersion,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}), #{deviceModel,jdbcType=VARCHAR},
+		#{device_signal,jdbcType=VARCHAR},#{networkType,jdbcType=VARCHAR},#{networkOperator,jdbcType=VARCHAR},#{deviceIP,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective"
+			parameterType="com.td.common_service.model.DeviceInfo">
+		insert into device_info
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="createdTime != null">
+				created_time,
+			</if>
+			<if test="deviceNo != null">
+				device_no,
+			</if>
+			<if test="deviceName != null">
+				device_name,
+			</if>
+			<if test="cloudId != null">
+				cloud_id,
+			</if>
+			<if test="iccId != null">
+				icc_id,
+			</if>
+			<if test="deviceKey != null">
+				device_key,
+			</if>
+			<if test="sn != null">
+				sn,
+			</if>
+			<if test="deviceState != null">
+				device_state,
+			</if>
+			<if test="trace != null">
+				trace,
+			</if>
+			<if test="spaceNu != null">
+				space_nu,
+			</if>
+			<if test="machineNu != null">
+				machine_nu,
+			</if>
+			<if test="deviceUuid != null">
+				device_uuid,
+			</if>
+			<if test="softVersion != null">
+				soft_version,
+			</if>
+			<if test="hardVersion != null">
+				hard_version,
+			</if>
+			<if test="agreementVersion != null">
+				agreement_version,
+			</if>
+			<if test="url != null">
+				url,
+			</if>
+			<if test="deviceModel != null">
+				device_model,
+			</if>
+			<if test="deviceSignal != null">
+				device_signal,
+			</if>
+			<if test="networkType != null">
+				network_type,
+			</if>
+			<if test="networkOperator != null">
+				network_operator,
+			</if>
+			<if test="deviceIP != null">
+				device_ip,
+			</if>
+			<if test="soleUid != null">
+				sole_uid,
+			</if>
+			<if test="placeUid != null">
+				place_uid,
+			</if>
+			<if test="agentUid != null">
+				agent_uid,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="createdTime != null">
+				#{createdTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="deviceNo != null">
+				#{deviceNo,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceName != null">
+				#{deviceName,jdbcType=VARCHAR},
+			</if>
+			<if test="cloudId != null">
+				#{cloudId,jdbcType=VARCHAR},
+			</if>
+			<if test="iccId != null">
+				#{iccId,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceKey != null">
+				#{deviceKey,jdbcType=VARCHAR},
+			</if>
+			<if test="sn != null">
+				#{sn,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceState != null">
+				#{deviceState,jdbcType=INTEGER},
+			</if>
+			<if test="trace != null">
+				#{trace,jdbcType=BIGINT},
+			</if>
+			<if test="spaceNu != null">
+				#{spaceNu,jdbcType=INTEGER},
+			</if>
+			<if test="machineNu != null">
+				#{machineNu,jdbcType=INTEGER},
+			</if>
+			<if test="deviceUuid != null">
+				#{deviceUuid,jdbcType=VARCHAR},
+			</if>
+			<if test="softVersion != null">
+				#{softVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="hardVersion != null">
+				#{hardVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="agreementVersion != null">
+				#{agreementVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="url != null">
+				#{url,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceModel != null">
+				#{deviceModel,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceSignal != null">
+				#{deviceSignal,jdbcType=VARCHAR},
+			</if>
+			<if test="networkType != null">
+				#{networkType,jdbcType=VARCHAR},
+			</if>
+			<if test="networkOperator != null">
+				#{networkOperator,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceIP != null">
+				#{deviceIP,jdbcType=VARCHAR},
+			</if>
+			<if test="soleUid != null">
+				#{soleUid,jdbcType=VARCHAR},
+			</if>
+			<if test="placeUid != null">
+				#{placeUid,jdbcType=VARCHAR},
+			</if>
+			<if test="agentUid != null">
+				#{agentUid,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+			parameterType="com.td.common_service.model.DeviceInfo">
+		update device_info
+		<set>
+			<if test="createdTime != null">
+				created_time = #{createdTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="deviceNo != null and '' != deviceNo">
+				device_no = #{deviceNo,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceName != null and '' != deviceName">
+				device_name = #{deviceName,jdbcType=VARCHAR},
+			</if>
+			<if test="cloudId != null and '' != cloudId">
+				cloud_id = #{cloudId,jdbcType=VARCHAR},
+			</if>
+			<if test="iccId != null and '' != iccId">
+				icc_id = #{iccId,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceKey != null and '' != deviceKey">
+				device_key = #{deviceKey,jdbcType=VARCHAR},
+			</if>
+			<if test="sn != null and '' != sn">
+				sn = #{sn,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceState != null">
+				device_state = #{deviceState,jdbcType=INTEGER},
+			</if>
+			<if test="trace != null">
+				trace = #{trace,jdbcType=BIGINT},
+			</if>
+			<if test="spaceNu != null">
+				space_nu = #{spaceNu,jdbcType=INTEGER},
+			</if>
+			<if test="machineNu != null">
+				machine_nu = #{machineNu,jdbcType=INTEGER},
+			</if>
+			<if test="deviceUuid != null and '' != deviceUuid">
+				device_uuid = #{deviceUuid,jdbcType=VARCHAR},
+			</if>
+			<if test="softVersion != null and '' != softVersion">
+				soft_version = #{softVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="hardVersion != null and '' != hardVersion">
+				hard_version = #{hardVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="agreementVersion != null and '' != agreementVersion">
+				agreement_version = #{agreementVersion,jdbcType=VARCHAR},
+			</if>
+			<if test="url != null and '' != url">
+				url = #{url,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceModel != null and '' != deviceModel">
+				device_model = #{deviceModel,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceSignal != null and '' != deviceSignal">
+				device_signal = #{deviceSignal,jdbcType=VARCHAR},
+			</if>
+			<if test="networkType != null and '' != networkType">
+				network_type = #{networkType,jdbcType=VARCHAR},
+			</if>
+			<if test="networkOperator != null and '' != networkOperator">
+				network_operator = #{networkOperator,jdbcType=VARCHAR},
+			</if>
+			<if test="deviceIP != null and '' != deviceIP">
+				device_ip = #{deviceIP,jdbcType=VARCHAR},
+			</if>
+			<if test="soleUid != null and '' != soleUid">
+				sole_uid = #{soleUid,jdbcType=VARCHAR},
+			</if>
+			<if test="placeUid != null and '' != placeUid">
+				place_uid = #{placeUid,jdbcType=VARCHAR},
+			</if>
+			<if test="agentUid != null and '' != agentUid">
+				agent_uid = #{agentUid,jdbcType=VARCHAR},
+			</if>
+			<if test="placeUuid != null and '' != placeUuid">
+				place_uuid = #{placeUuid,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+			parameterType="com.td.common_service.model.DeviceInfo">
+		update device_info
+		set created_time = #{createdTime,jdbcType=TIMESTAMP},
+		device_no = #{deviceNo,jdbcType=VARCHAR},
+		device_name = #{deviceName,jdbcType=VARCHAR},
+		cloud_id = #{cloudId,jdbcType=VARCHAR},
+		icc_id = #{iccId,jdbcType=VARCHAR},
+		device_key = #{deviceKey,jdbcType=VARCHAR},
+		sn = #{sn,jdbcType=VARCHAR},
+		device_state = #{deviceState,jdbcType=INTEGER},
+		trace = #{trace,jdbcType=BIGINT},
+		space_nu = #{spaceNu,jdbcType=INTEGER},
+		machine_nu = #{machineNu,jdbcType=INTEGER},
+		device_uuid = #{deviceUuid,jdbcType=VARCHAR},
+		soft_version = #{softVersion,jdbcType=VARCHAR},
+		hard_version = #{hardVersion,jdbcType=VARCHAR},
+		agreement_version = #{agreementVersion,jdbcType=VARCHAR},
+		url = #{url,jdbcType=VARCHAR},
+		device_model = #{deviceModel,jdbcType=VARCHAR},
+		device_signal = #{deviceSignal,jdbcType=VARCHAR},
+		network_type = #{networkType,jdbcType=VARCHAR},
+		network_operator = #{networkOperator,jdbcType=VARCHAR},
+		device_ip = #{deviceIP,jdbcType=VARCHAR},
+		sole_uid = #{soleUid,jdbcType=VARCHAR},
+		place_no = #{placeNo,jdbcType=VARCHAR},
+		agent_uid = #{agentUid,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<update id="updateState">
+		UPDATE device_info
+		SET device_state = #{deviceState}
+		WHERE device_no = #{deviceNo}
+	</update>
+
+	<!-- 定时-昨日总金额 -->
+	<select id="selectDeviceInfoDaySumMoney" resultMap="BaseResultMap">
+		SELECT di.*,SUM(orp.money) all_day_money,COUNT(1) order_count FROM (SELECT * FROM order_rent_pay WHERE TO_DAYS( NOW( ) ) - TO_DAYS(finish_time) = 1  AND order_state=2)orp
+		LEFT JOIN
+		device_info di
+
+		ON di.device_uuid=orp.device_uuid
+
+		GROUP BY device_uuid
+	</select>
+
+	<update id="updateNettyDeviceToOffline">
+		UPDATE device_info
+		SET device_state = 0
+		WHERE cloud_id != null
+	</update>
+
+</mapper>

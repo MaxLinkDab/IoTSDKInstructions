@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.common_service.mapper.PowerbankPositionLogMapper" >
+  <resultMap id="BaseResultMap" type="com.td.common_service.model.PowerbankPositionLog" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="position_uuid" property="positionUuid" jdbcType="VARCHAR" />
+    <result column="power_no" property="powerNo" jdbcType="VARCHAR" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="modify_time" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="device_uuid" property="deviceUuid" jdbcType="VARCHAR" />
+    <result column="back_time" property="backTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, create_time, position_uuid, power_no, state, modify_time, user_id, device_uuid, 
+    back_time
+  </sql>
+</mapper>

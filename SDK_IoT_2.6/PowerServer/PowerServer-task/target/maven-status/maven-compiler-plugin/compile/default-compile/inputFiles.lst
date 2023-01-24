@@ -1,0 +1,11 @@
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/mapper/DeviceLogMapper.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/service/IDeviceLogService.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/mapper/test/OrderMapper.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/schedule/DeviceLogSchedule2.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/model/test/Order.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/service/impl/test/DemoService.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/model/DeviceLog.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/service/impl/DeviceLogServiceImpl.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/schedule/DeviceLogSchedule.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/TaskMain.java
+/home/nikolay/Загрузки/IoT-SDK+Instructions/SDK_IoT_2.6/PowerServer/PowerServer-task/src/main/java/com/td/task/controller/DeviceController.java

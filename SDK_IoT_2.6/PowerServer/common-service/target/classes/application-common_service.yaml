@@ -1,0 +1,104 @@
+
+spring:
+  #################################redis配置########################################
+  redis:
+    host: 127.0.0.1
+#    port: 6379
+#    password: zkqk666888
+    #host: 192.168.1.20
+    port: 6379
+    password:
+    timeout: 10000 # 连接超时时间（毫秒）
+    database: 0 # Redis默认情况下有16个分片，这里配置具体使用的分片，默认是0
+    lettuce:
+      pool:
+        max-active: 8 # 连接池最大连接数（使用负值表示没有限制）默认 8
+        max-wait: -1 # 连接池最大阻塞等待时间（使用负值表示没有限制）默认 -1
+        max-idle: 8 # 连接池中的最大空闲连接默认 8
+        min-idle: 0 # 连接池中的最小空闲连接默认 0
+ #################################redis配置########################################
+ #####################################################################################################
+# mysql 属性配置
+  datasource:
+    #name: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/tdotcn-demo?useUnicode=true&characterEncoding=utf8&useSSL=false&allowPublicKeyRetrieval=true&allowMultiQueries=true
+    username: root
+    password: nikolay
+    hikari:
+      ##  Hikari 连接池配置 ------ 详细配置请访问：https://github.com/brettwooldridge/HikariCP
+      ## 最小空闲连接数量
+      minimumIdle: 5
+      ## 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      ## 连接池最大连接数，默认是10
+      maximum-pool-size: 50
+      ## 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      ## 连接池母子
+      pool-name: MyHikariCP
+      ## 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      ## 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
+#  jpa:
+#    properties:
+#      hibernate:
+#        show_sql: true
+#        format_sql: true
+#    hibernate:
+#      #ddl-auto: create #ddl-auto:设为create表示每次都重新建表
+#      ddl-auto: update #ddl-auto:设为update表示每次都不会重新建表
+#    show-sql: true
+#####################################################################################################
+  klock:
+#    database: 9
+    address: 127.0.0.1:6379
+    password:
+    database: 9
+
+#####################################################################################################
+# mybatis mapper xml 配置
+#mybatis:
+  #type-aliases-package：指定domain类的基包，即指定其在*Mapper.xml文件中可以使用简名来代替全类名（看后边的UserMapper.xml介绍）
+  #mapper-locations: classpath:mybatis/mapper/*.xml
+  #config-location: classpath:mybatis/mybatis-config.xml
+
+# mybatis-plus 配置
+#mybatis-plus:
+#  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+#  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+#  config-location: classpath:/mybatis/mybatis-config.xml
+#  mapper-locations: classpath*:/mybatis/mapper/**/*.xml
+#  #实体扫描，多个package用逗号或者分号分隔
+#  #typeAliasesPackage: com.td._sys.entity
+#  typeAliasesPackage: com.td.domain
+#  global-config:
+#    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+#    id-type: 3
+#    # 热加载mapper文件
+#    refresh: true
+#    db-config:
+#      db-type: mysql
+mybatis:
+  #config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath*:/mybatis/mapper/**/*.xml
+  type-aliases-package: com.td.model
+  configuration:
+    map-underscore-to-camel-case: true
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#####################################################################################################
+
+
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.authorize: DEBUG
+
+

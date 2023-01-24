@@ -1,0 +1,43 @@
+# 阿里云
+aliyun:
+  # 物联网
+  iot:
+    #   regionId
+    #   华东 2	    上海	    cn-shanghai
+    #   香港	        香港	    cn-hongkong
+    #   亚太东南 1	新加坡	ap-southeast-1
+    #   亚太东南 2	悉尼	    ap-southeast-2
+    #   亚太东南 3	吉隆坡	ap-southeast-3
+    #   亚太东南 5	雅加达	ap-southeast-5
+    #   亚太南部 1	孟买  	ap-south-1
+    #   亚太东北 1	东京 	ap-northeast-1
+    #   美国西部 1	硅谷 	us-west-1
+    #   美国东部 1	弗吉尼亚	us-east-1
+    #   欧洲中部 1	法兰克福	eu-central-1
+    accessKeyId: LTAI5tLg1fSDbppNRKR3Znzr
+    accessKeySecret: eK9SoAT4MuDM5UynmTDywxLZ12pL6u
+    regionId: cn-shanghai
+    productCode: Iot
+    domain: iot.cn-shanghai.aliyuncs.com
+    version: 2018-01-20
+    uid: 862506049385829
+    #产品Key
+    productKey: a1fe2TxOa3N
+    # 参数说明，请参见文档：AMQP客户端接入说明
+    consumerGroupId: DEFAULT_GROUP
+    # 建议使用机器UUID、MAC地址、IP等唯一标识等作为clientId。便于您区分识别不同的客户端
+    clientId: client1
+
+
+device.eject:
+  # ms
+  sleep: 3000
+  redisKey: DeviceEject_
+  # s
+  expireTime: 180
+  # 最大充电数
+  chargeCount: 10
+  # 最大充电时间(30min)
+  maxChargeTime: 1800
+  # 最小充电间隔时间(2h)
+  minChargeTime: 3600

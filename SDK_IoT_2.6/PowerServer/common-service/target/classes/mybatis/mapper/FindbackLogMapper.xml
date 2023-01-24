@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.td.common_service.mapper.FindbackLogMapper" >
+  <resultMap id="BaseResultMap" type="com.td.common_service.model.FindbackLog" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="device_uuid" property="deviceUuid" jdbcType="VARCHAR" />
+    <result column="machine_uuid" property="machineUuid" jdbcType="VARCHAR" />
+    <result column="event" property="event" jdbcType="VARCHAR" />
+    <result column="bid" property="bid" jdbcType="INTEGER" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, device_uuid, machine_uuid, event, bid, created_time
+  </sql>
+</mapper>
